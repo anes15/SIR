@@ -62,5 +62,5 @@ By creating or deleting the `29` value which controls the arrow overlay.
 > **AR:** هذه الأداة تقوم بتعديل سجل النظام. استخدامها يقع على مسؤوليتك الخاصة. يُنصح بإنشاء نقطة استعادة للنظام قبل البدء.
 
 ---
-**Developed by: [Your Name]**  
+**Developed by: [anes15]**  
 **License: MIT**
