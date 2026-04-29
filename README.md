@@ -14,7 +14,6 @@
 ### ✨ المميزات
 *   🚀 **إزالة فورية:** حذف سهم الاختصار (Shortcut Arrow) من جميع الأيقونات.
 *   🔄 **استعادة كاملة:** خيار للعودة إلى شكل الأسهم الافتراضي في أي وقت.
-*   ⚡ **تحديث فوري:** لا حاجة لإعادة تشغيل الجهاز؛ يتم تحديث الأيقونات برمجياً.
 *   🛡️ **دعم المعماريات:** متوافق مع أنظمة **64-bit** و **32-bit**.
 
 ### 🚀 كيف يعمل؟
@@ -40,7 +39,6 @@
 ### ✨ Features
 *   🚀 **Instant Removal:** Completely hide the shortcut arrow overlay from all icons.
 *   🔄 **Full Restoration:** Option to restore the default Windows shortcut arrows at any time.
-*   ⚡ **Live Refresh:** Changes take effect immediately without needing a system reboot.
 *   🛡️ **Architecture Support:** Fully compatible with both **64-bit** and **32-bit** systems.
 
 ### 🚀 How It Works
