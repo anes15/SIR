@@ -5,12 +5,14 @@
 #include <lmcons.h>
 
 
+
 const char* path = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons";
 const char* valueName = "29";
 const char* data = "%windir%\\System32\\shell32.dll,-51";
 
 
 std::string GetUser() {
+	
 	char username[UNLEN + 1];
 	DWORD username_len = UNLEN + 1;
 	if (GetUserNameA(username, &username_len)) {
@@ -18,29 +20,31 @@ std::string GetUser() {
 	}
 }
 
-void Restart() {
-	system("shutdown /r /t 3");
+void explorer() {
+	std::cout << "CLOSING EXPLORER..."<< std::endl;
+	system("taskkill /f /im explorer.exe");
+
+	std::cout << "RESATRTING EXPLORER..."<< std::endl;
+	system("start explorer.exe");
+	std::cout << "explorer.exe is running now...\n";
+
 }
 
 void RSI() {
+	
 	HKEY hkey;
 	LONG result = RegCreateKeyExA(HKEY_LOCAL_MACHINE, path, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_WRITE | KEY_WOW64_64KEY, NULL, &hkey, NULL);
 
-	std::string Confermation;
+
 	if (result == ERROR_SUCCESS) {
 
 		result = RegSetValueExA(hkey, valueName, 0, REG_SZ, (const BYTE*)data, strlen(data) + 1);
 
 		if (result == ERROR_SUCCESS) {
 			std::cout << "[+] Shortcut icon successfuly removed" << std::endl;
-			std::cout << "[?] Restarting your PC is required , Do you want to restart (y/n):"; std::cin >> Confermation;
-			if (Confermation == "y") {
-				Restart();
-			}
-			else
-			{
-				system("pause");
-			}
+			explorer();
+			system("pause");
+			
 			
 		}
 		else
@@ -64,9 +68,7 @@ void RSI() {
 }
 
 void Restore() {
-
-	std::string confermation;
-
+	
 	HKEY hkey;
 	LONG result = RegOpenKeyExA(HKEY_LOCAL_MACHINE, path, 0, KEY_SET_VALUE | KEY_WOW64_64KEY, &hkey);
 
@@ -74,14 +76,8 @@ void Restore() {
 		result = RegDeleteValueA(hkey, valueName);
 		if (result == ERROR_SUCCESS) {
 			std::cout << "[+] Shortcut icon successfully restored!" << std::endl;
-			SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_IDLIST, NULL, NULL);
-			std::cout << "[?] Restarting your PC is required , Do you want to restart (y/n):"; std::cin >> confermation;
-			if (confermation == "y") {
-				Restart();
-			}
-			else {
-				system("pause");
-			}
+			explorer();
+			system("pause");
 		}
 		else {
 			std::cout << "[!] ERROR: Value not found or already restored." << std::endl;
