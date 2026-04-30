@@ -1,7 +1,5 @@
 # SIR (Shortcut Icon Remover) 🛠️
 
-![SIR Logo](16128163732607276612.jpeg)
-
 ---
 
 ## 🌍 Language / اللغة
