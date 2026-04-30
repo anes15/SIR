@@ -18,6 +18,7 @@ std::string GetUser() {
 	if (GetUserNameA(username, &username_len)) {
 		return username;
 	}
+	return "user"
 }
 
 void explorer() {
